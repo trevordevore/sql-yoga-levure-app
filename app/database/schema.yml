@@ -1,10 +1,3 @@
-connections: # This could probably be a separate file
-  french regions:
-    adaptor: sqlite
-    quote identifiers: false
-    type: sqlite
-    file: ./france.sqlite # Convert `file` to `database name` internally. look relative to app root.
-default connection: french regions
 schema migrations: # This could probably be moved to a separate file
 query templates: # This could probably be a separate file as well
 table objects behavior: # This could probably be a separate file
