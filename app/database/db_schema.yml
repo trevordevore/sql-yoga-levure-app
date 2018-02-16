@@ -1,0 +1,135 @@
+connections: # This could probably be a separate file
+  french regions:
+    adaptor: sqlite
+    quote identifiers: false
+    type: sqlite
+    file: ./france.sqlite # Convert `file` to `database name` internally. look relative to app root.
+default connection: french regions
+schema migrations: # This could probably be moved to a separate file
+query templates: # This could probably be a separate file as well
+table objects behavior: # This could probably be a separate file
+table objects:
+schema:
+  tables:
+    towns:
+      primary key: code
+      field order: code,department,name
+      fields:
+        name:
+          name: name
+          encoding:
+          accepts null: true
+          default value: NULL
+          length:
+          unique: false
+          meta type: text
+          signed: false
+          primary key: false
+          type: text
+        code:
+          name: code
+          encoding:
+          accepts null: false
+          default value: NULL
+          length:
+          unique: true
+          meta type: text
+          signed: false
+          primary key: true
+          type: text
+        department:
+          name: department
+          encoding:
+          accepts null: true
+          default value: NULL
+          length:
+          unique: false
+          meta type: text
+          signed: false
+          primary key: false
+          type: text
+    departments:
+      primary key: code
+      field order: code,region,capital,name
+      fields:
+        region:
+          name: region
+          encoding:
+          accepts null: true
+          default value: NULL
+          length:
+          unique: false
+          meta type: text
+          signed: false
+          primary key: false
+          type: text
+        capital:
+          name: capital
+          encoding:
+          accepts null: true
+          default value: NULL
+          length:
+          unique: false
+          meta type: text
+          signed: false
+          primary key: false
+          type: text
+        name:
+          name: name
+          encoding:
+          accepts null: true
+          default value: NULL
+          length:
+          unique: false
+          meta type: text
+          signed: false
+          primary key: false
+          type: text
+        code:
+          name: code
+          encoding:
+          accepts null: false
+          default value: NULL
+          length:
+          unique: true
+          meta type: text
+          signed: false
+          primary key: true
+          type: text
+    regions:
+      primary key: code
+      field order: code,capital,name
+      fields:
+        name:
+          name: name
+          encoding:
+          accepts null: true
+          default value: NULL
+          length:
+          unique: false
+          meta type: text
+          signed: false
+          primary key: false
+          type: text
+        code:
+          name: code
+          encoding:
+          accepts null: false
+          default value: NULL
+          length:
+          unique: true
+          meta type: text
+          signed: false
+          primary key: true
+          type: text
+        capital:
+          name: capital
+          encoding:
+          accepts null: true
+          default value: NULL
+          length:
+          unique: false
+          meta type: text
+          signed: false
+          primary key: false
+          type: text
