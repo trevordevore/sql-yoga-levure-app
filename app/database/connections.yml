@@ -1,0 +1,7 @@
+default connection: french regions
+connections:
+  french regions:
+    adaptor: sqlite
+    quote identifiers: false
+    type: sqlite
+    file: ./database/france.sqlite

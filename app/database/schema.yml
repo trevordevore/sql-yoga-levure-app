@@ -1,7 +1,3 @@
-schema migrations: # This could probably be moved to a separate file
-query templates: # This could probably be a separate file as well
-table objects behavior: # This could probably be a separate file
-table objects:
 schema:
   tables:
     towns:
