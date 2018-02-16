@@ -46,9 +46,14 @@ helpers:
 behaviors:
   - folder: ./behaviors
 
-database schemas:
-  - filename: ./database/db_schema.yml
-    database key: default
+sql yoga:
+  database key: default
+  configuration files:
+    - filename: ./database/schema.yml
+    - filename: ./database/connections.yml
+    - filename: ./database/migrations.yml
+    - filename: ./database/query templates.yml
+    - filename: ./database/table objects.yml
 
 build folder: ../builds
 build profiles:
