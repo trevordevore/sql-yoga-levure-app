@@ -47,13 +47,9 @@ behaviors:
   - folder: ./behaviors
 
 sql yoga:
-  database key: default
-  configuration files:
-    - filename: ./database/schema.yml
-    - filename: ./database/connections.yml
-    - filename: ./database/migrations.yml
-    - filename: ./database/query templates.yml
-    - filename: ./database/table objects.yml
+  configuration:
+    - filename: ./database
+      database key: default
 
 build folder: ../builds
 build profiles:
