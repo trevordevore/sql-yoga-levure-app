@@ -47,7 +47,7 @@ behaviors:
   - folder: ./behaviors
 
 database schemas:
-  - filename: db_schema.yml
+  - filename: ./database/db_schema.yml
     database key: default
 
 build folder: ../builds
