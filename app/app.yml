@@ -20,8 +20,8 @@ application data folder:
     linux:
 preferences filename:
   user:
-    default:
-    macos:
+    default: SQL Yoga To Do Example.prefs
+    macos: com.sqlyoga.todo-example.todo-osx
     windows:
     linux:
     ios:
@@ -43,6 +43,7 @@ helpers:
   - folder: ./helpers
   - filename: ../../sql-yoga
   - filename: "[[FRAMEWORK]]/helpers/preferences"
+  - filename: "[[FRAMEWORK]]/helpers/window_manager"
 behaviors:
   - folder: ./behaviors
 
