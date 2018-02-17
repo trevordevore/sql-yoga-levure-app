@@ -9,11 +9,12 @@ end PreloadApplication
 command InitializeApplication
   # Called after script-only stacks, extensions, and externals in app.yml are loaded.
   # Perform initialization operations before UI stack is opened.
+  local tError
 
   # UNCOMMENT the code below to use Sublime Text external editor in development
-  -- if the environment is "development" then
-  --   levureLoadExternalEditorServer
-  -- end if
+  if the environment is "development" then
+    levureLoadExternalEditorServer
+  end if
 
   # UNCOMMENT the code below as well as the FirstRun command below to use a
   # preference setting to trigger a FirstRun handler. You must configure the
@@ -26,6 +27,21 @@ command InitializeApplication
   -- end if
 
   # Perform initialization operations every time application runs.
+  set navigationarrows to false
+  if the environment is not "development" then
+    set allowinterrupts to false
+  end if
+
+  dbconn_connect
+  put the result into tError
+
+  if tError is not empty then
+    answer "Unable to initialize program (" & tError & "). Application will quit."
+    if the environment is not "development" then
+      ## returning false tells framework that initialization failed and app should quit.
+      return false
+    end if
+  end if
 
   return true
 end InitializeApplication
@@ -41,7 +57,7 @@ command OpenApplication
   # Open UI stack
 
   # Open the starter app sample window UI stack
-  go stack "LevureSampleWindow"
+  go stack "todo_window"
 end OpenApplication
 
 
