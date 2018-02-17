@@ -1,2 +1,30 @@
-table objects behavior:
-table objects:
+scopes:
+  todo_items:
+    - name: of project
+      related table joins: LEFT OUTER JOIN people
+      conditions: todo_items.project_id is :1
+    - name: of person
+      related table joins: people
+      conditions: people.id is :1
+    - name: not completed
+      conditions: todo_items.completed is 0
+    - name: name contains
+      conditions: todo_items.name contains ':1'
+relationships:
+  - name: projects to todo items
+    type: one-to-many
+    left table: projects
+    left table key: id
+    right table: todo_items
+    right table key: project_id
+    order by: todo_items.sequence
+  - name: people to todo items
+    type: many-to-many
+    left table: people
+    left table key: id
+    cross-reference table: people_todo
+    cross-reference table key for left table: people_id
+    cross-reference table key for right table: todo_id
+    right table: todo_items
+    right table key: id
+    order by: todo_items.name

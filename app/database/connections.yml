@@ -1,7 +1,7 @@
-default connection: french regions
+default connection: local
 connections:
-  french regions:
+  local:
     adaptor: sqlite
     quote identifiers: false
     type: sqlite
-    file: ./database/france.sqlite
+    file: ./database/to-do.sqlite
