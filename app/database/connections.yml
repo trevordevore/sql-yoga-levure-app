@@ -3,5 +3,5 @@ connections:
   local:
     adaptor: sqlite
     quote identifiers: false
-    type: sqlite
+    type:
     file: ./database/to-do.sqlite
