@@ -13,7 +13,7 @@ command InitializeApplication
 
   # UNCOMMENT the code below to use Sublime Text external editor in development
   if the environment is "development" then
-    levureLoadExternalEditorServer
+    levureLoadExternalEditorServer "61375"
   end if
 
   # UNCOMMENT the code below as well as the FirstRun command below to use a
