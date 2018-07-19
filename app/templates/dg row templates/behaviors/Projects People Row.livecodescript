@@ -8,10 +8,10 @@ on FillInData pDataArray
    -- an array containing the records data.
    -- You do not need to resize any of your template's controls in
    -- this message. All resizing should be handled in resizeControl.
-   
+
    ## SQL Record objects have a @table key specifying the table
    ## the object is associated with. Use presence of value in that key
-   ##  to determine how row should be formatted. 
+   ##  to determine how row should be formatted.
    if pDataArray["@table"] is not empty then
       set the leftmargin of field "Label" of me to 20
       set the textstyle of field "Label" of me to empty
@@ -19,36 +19,36 @@ on FillInData pDataArray
       set the leftmargin of field "Label" of me to 8
       set the textstyle of field "Label" of me to "bold"
    end if
-   
+
    set the text of field "Label" of me to pDataArray["name"]
 end FillInData
 
 
 on LayoutControl pControlRect
    local theFieldRect
-   
+
    -- This message is sent when you should layout your template's controls.
-   -- This is where you resize the 'Background' graphic, resize fields and 
+   -- This is where you resize the 'Background' graphic, resize fields and
    -- position objects.
    -- For fixed height data grid forms you can use items 1 through 4 of pControlRect as
    -- boundaries for laying out your controls.
    -- For variable height data grid forms you can use items 1 through 3 of pControlRect as
    -- boundaries, expanding the height of your control as needed.
-   
+
    -- Example:
    put the rect of field "Label" of me into theFieldRect
    put item 3 of pControlRect - 5 into item 3 of theFieldRect
    set the rect of field "Label" of me to theFieldRect
-   
+
    set the rect of graphic "Background" of me to pControlRect
 end LayoutControl
 
 
 setprop dgHilite pBoolean
    -- This custom property is set when the highlight of your custom template has
-   -- changed. By default the "Background" graphic will be highlighted for you. 
+   -- changed. By default the "Background" graphic will be highlighted for you.
    -- You only add script here if you want to further customize the highlight.
-   
+
    -- Example:
    if pBoolean then
       set the foregroundcolor of me to the dgProp["hilited text color"] of the dgControl of me
@@ -65,7 +65,7 @@ end dgDataControl
 
 
 on mouseDown pMouseBtnNum
-   ## Don't allow selection of Projects and People titles 
+   ## Don't allow selection of Projects and People titles
    if the uIndexCanBeSelected[the dgIndex of me] of me then
       pass mouseDown
    end if
@@ -81,7 +81,7 @@ end EditValue
 
 on mouseDoubleUp pMouseBtnNum
    local theKey
-   
+
    -- Example of how to edit the contents of a field.
    -- By passing the index of the record associated with copy of this template being displayed and
    -- a key (array key) the data grid will automatically save the changes the user
@@ -92,10 +92,10 @@ on mouseDoubleUp pMouseBtnNum
             case "Label"
                put "name" into theKey
                EditKeyOfIndex theKey, the dgIndex of me
-               break                 
+               break
          end switch
       end if
    end if
-   
+
    pass mouseDoubleUp
 end mouseDoubleUp
