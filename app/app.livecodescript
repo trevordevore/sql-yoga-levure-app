@@ -32,8 +32,10 @@ command InitializeApplication
     set allowinterrupts to false
   end if
 
+  try
   dbconn_connect
-  put the result into tError
+  catch tError
+  end try
 
   if tError is not empty then
     answer "Unable to initialize program (" & tError & "). Application will quit."
