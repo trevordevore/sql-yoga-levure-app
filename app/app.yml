@@ -61,7 +61,7 @@ build profiles:
         name:
     copy files:
       all platforms:
-        - filename: assets
+        - filename: ./database/to-do.sqlite
       macos:
       windows:
       linux:
