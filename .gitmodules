@@ -1,3 +1,6 @@
 [submodule "levure"]
 	path = levure
 	url = https://github.com/trevordevore/levure.git
+[submodule "app/helpers/sql-yoga"]
+	path = app/helpers/sql-yoga
+	url = https://github.com/trevordevore/sql-yoga.git

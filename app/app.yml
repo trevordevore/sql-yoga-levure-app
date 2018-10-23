@@ -42,10 +42,9 @@ frontscripts:
 backscripts:
   - folder: ./backscripts
 helpers:
-  - folder: ./helpers
-  - filename: ../../sql-yoga
   - filename: "[[FRAMEWORK]]/helpers/preferences"
   - filename: "[[FRAMEWORK]]/helpers/window_manager"
+  - folder: ./helpers
 behaviors:
   - folder: ./behaviors
 
