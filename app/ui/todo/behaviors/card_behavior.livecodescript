@@ -9,12 +9,6 @@ on PreOpenView pHasBeenOpened
     dispatch "FormatCardControlsForPlatform" to card "ProjectsPeople" of theStack
     dispatch "FormatCardControlsForPlatform" to card "To-Do" of theStack
 
-    if the platform is "macos" then
-      set the dgProps["scrollbar corner offset"] of group "ToDo" to 15
-    else
-      set the dgProps["scrollbar corner offset"] of group "ToDo" to 0
-    end if
-
     uiReset
     uiPopulateProjectsAndPeople
   end if
