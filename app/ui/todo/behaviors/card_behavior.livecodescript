@@ -431,12 +431,14 @@ end LinkPersonWithToDo
 
 
 function NextSequenceForProject pProjectID
-  put sqlquery_createObject("todo_items") into theQueryA
-  sqlquery_set theQueryA, "select clause", "MAX(sequence)"
-  sqlquery_set theQueryA, "conditions", "project_id is :1", pProjectID
-  sqlquery_retrieveAsData theQueryA, theData
+  local tQueryA, tData
+
+  put sqlquery_createObject("todo_items") into tQueryA
+  sqlquery_set tQueryA, "select clause", "MAX(sequence)"
+  sqlquery_set tQueryA, "conditions", "project_id is :1", pProjectID
+  put sqlquery_retrieveAsData(tQueryA) into tData
   if the result is empty then
-    return theData + 1
+    return tData + 1
   else
     return 0
   end if
